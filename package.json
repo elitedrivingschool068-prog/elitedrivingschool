@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.56.1",
-    "next": "15.5.2",
+    "geist": "^1.4.2",
+    "next": "^15.5.2",
     "react": "19.1.0",
     "react-calendar": "^6.0.0",
     "react-dom": "19.1.0"

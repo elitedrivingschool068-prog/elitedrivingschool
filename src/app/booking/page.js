@@ -94,17 +94,19 @@ export default function BookingPage() {
   useEffect(() => {
     if (date && instructors.length > 0 && vehicles.length > 0) {
       const allSlots = generateTimeSlots(date);
-      
+
       const filteredSlots = allSlots.filter(slot => {
-        const isBooked = bookings.some(booked => {
-          const bookedStartTime = new Date(booked.start_time);
-          return bookedStartTime.getTime() === slot.start.getTime();
-        });
+        const conflictingBookings = bookings.filter(
+          b => new Date(b.start_time).getTime() === slot.start.getTime()
+        );
 
-        const instructorsAvailable = instructors.length > 0;
-        const vehiclesAvailable = vehicles.length > 0;
+        const busyInstructorIds = conflictingBookings.map(b => b.instructor_id);
+        const busyVehicleIds = conflictingBookings.map(b => b.vehicle_id);
 
-        return !isBooked && instructorsAvailable && vehiclesAvailable;
+        const hasAvailableInstructor = instructors.some(i => !busyInstructorIds.includes(i.id));
+        const hasAvailableVehicle = vehicles.some(v => !busyVehicleIds.includes(v.id));
+
+        return hasAvailableInstructor && hasAvailableVehicle;
       });
 
       setAvailableSlots(filteredSlots);
@@ -133,13 +135,29 @@ export default function BookingPage() {
       return;
     }
     
-    const instructorId = instructors[0].id;
-    const vehicleId = vehicles[0].id;
+    const conflictingBookings = bookings.filter(
+      b => new Date(b.start_time).getTime() === slot.start.getTime()
+    );
 
-    if (!instructorId || !vehicleId) {
-      alert("No available instructors or vehicles.");
+    const busyInstructorIds = conflictingBookings.map(b => b.instructor_id);
+    const busyVehicleIds = conflictingBookings.map(b => b.vehicle_id);
+
+    const availableInstructor = instructors.find(i => !busyInstructorIds.includes(i.id));
+    const availableVehicle = vehicles.find(v => !busyVehicleIds.includes(v.id));
+
+    if (!availableInstructor || !availableVehicle) {
+      alert("Sorry, this slot was just booked. Please select another one.");
+      const { data: updatedBookings } = await supabase
+        .from('bookings')
+        .select('*')
+        .gte('start_time', date.toISOString().split('T')[0] + 'T00:00:00Z')
+        .lte('end_time', date.toISOString().split('T')[0] + 'T23:59:59Z');
+      setBookings(updatedBookings);
       return;
     }
+
+    const instructorId = availableInstructor.id;
+    const vehicleId = availableVehicle.id;
 
     const bookingData = {
       student_id: profile.id,
