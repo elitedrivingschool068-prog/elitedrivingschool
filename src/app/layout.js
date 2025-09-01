@@ -1,30 +1,16 @@
-'use client';
+import './globals.css';
 
-import { useRouter } from 'next/navigation';
-import { supabase } from '@/lib/supabase';
-import styles from './Layout.module.css';
+export const metadata = {
+  title: 'Elite Driving School',
+  description: 'Book your driving lessons with the best instructors.',
+};
 
-export default function Layout({ children }) {
-  const router = useRouter();
-
-  const handleSignOut = async () => {
-    const { error } = await supabase.auth.signOut();
-    if (error) {
-      console.error("Sign out failed:", error);
-    } else {
-      router.push('/login');
-    }
-  };
-
+export default function RootLayout({ children }) {
   return (
-    <div className={styles.container}>
-      <header className={styles.header}>
-        <h1 className={styles.title}>Elite Driving School</h1>
-        <button onClick={handleSignOut} className={styles.signOutButton}>Sign Out</button>
-      </header>
-      <main className={styles.mainContent}>
+    <html lang="en">
+      <body>
         {children}
-      </main>
-    </div>
+      </body>
+    </html>
   );
 }

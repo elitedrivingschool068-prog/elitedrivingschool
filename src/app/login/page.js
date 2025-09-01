@@ -30,7 +30,15 @@ export default function AuthPage() {
         .single();
 
       if (profileError || !profile) {
-        setError("User profile not found. Please contact support.");
+        const { error: insertError } = await supabase
+          .from('profiles')
+          .insert([{ id: user.id, role: 'student' }]);
+
+        if (insertError) {
+          setError('Failed to create user profile. Please contact support.');
+          return;
+        }
+        router.push('/booking');
         return;
       }
 
