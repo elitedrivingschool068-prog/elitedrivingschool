@@ -1,0 +1,87 @@
+.adminNav {
+  background: #1f2937;
+  color: white;
+  width: 250px;
+  min-height: 100vh;
+  padding: 1.5rem 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.navHeader {
+  padding: 0 1.5rem 1.5rem;
+  border-bottom: 1px solid #374151;
+  margin-bottom: 1.5rem;
+}
+
+.navTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  color: #f3f4f6;
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navItem {
+  margin: 0;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  color: #d1d5db;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.navLink:hover {
+  background-color: #374151;
+  color: white;
+  border-left-color: #6366f1;
+}
+
+.navLink.active {
+  background-color: #4338ca;
+  color: white;
+  border-left-color: #818cf8;
+}
+
+.navIcon {
+  margin-right: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.navLabel {
+  font-weight: 500;
+}
+
+.navFooter {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 0;
+  right: 0;
+  padding: 0 1.5rem;
+  border-top: 1px solid #374151;
+  padding-top: 1.5rem;
+}
+
+.backLink {
+  color: #9ca3af;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.backLink:hover {
+  color: #f3f4f6;
+}

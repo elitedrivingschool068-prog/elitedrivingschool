@@ -1,0 +1,107 @@
+.container {
+  max-width: 800px;
+  margin: 8rem auto 4rem auto;
+  padding: 0 2rem;
+  min-height: 50vh;
+}
+
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.formCard {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.select,
+.input {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  font-size: 1rem;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.select:focus,
+.input:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.slotsContainer {
+  margin-top: 1rem;
+}
+
+.slotsTitle {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.slotsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+.slotButton {
+  padding: 0.75rem 1rem;
+  background-color: #e0e7ff;
+  color: #4f46e5;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.slotButton:hover:not(:disabled) {
+  background-color: #c7d2fe;
+}
+
+.slotButton:disabled {
+  background-color: #e5e7eb;
+  color: #9ca3af;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+.noSlots {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  padding-top: 1rem;
+}
+
+.message {
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 600;
+  color: #16a34a; /* Success color */
+}
+
+.message.error {
+  color: #dc2626; /* Error color */
+}

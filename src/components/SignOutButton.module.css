@@ -1,0 +1,22 @@
+.button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  border: none;
+  color: #ef4444;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+  padding: 0.5rem 1rem;
+}
+
+.button:hover {
+  color: #b91c1c;
+}
+
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}

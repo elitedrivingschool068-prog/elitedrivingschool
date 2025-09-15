@@ -1,0 +1,41 @@
+/* Container for the entire form */
+.paymentForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Base style for the Stripe PaymentElement and LinkAuthenticationElement */
+.paymentElement {
+  /* You can add custom styles for the payment element here */
+}
+
+/* Styles for the submit button */
+.submitButton {
+  background-color: #4f46e5;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover:not(:disabled) {
+  background-color: #4338ca;
+}
+
+.submitButton:disabled {
+  background-color: #a5b4fc;
+  cursor: not-allowed;
+}
+
+/* Styles for status messages */
+.message {
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 600;
+  color: #dc2626;
+}

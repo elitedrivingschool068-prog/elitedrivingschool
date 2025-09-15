@@ -1,0 +1,79 @@
+/* src/components/Header.module.css */
+
+.header {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  /* Add these two lines for the show/hide effect */
+  transition: transform 0.3s ease-in-out;
+  transform: translateY(0);
+}
+
+.headerHidden {
+  transform: translateY(-100%);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.leftNav {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #4f46e5;
+  margin-right: 2rem;
+}
+
+.navList {
+  display: flex;
+  list-style-type: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  text-decoration: none;
+  color: #555;
+  font-weight: 600;
+  transition: color 0.3s ease-in-out;
+}
+
+.navItem:hover {
+  color: #4f46e5;
+}
+
+.rightNav {
+  display: flex;
+  align-items: center;
+}
+
+.signUpButton {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #4f46e5;
+  transition: all 0.3s ease-in-out;
+  border: 2px solid #4f46e5;
+}
+
+.signUpButton:hover {
+  background-color: #4338ca;
+  border-color: #4338ca;
+}

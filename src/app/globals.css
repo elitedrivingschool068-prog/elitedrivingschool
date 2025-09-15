@@ -16,12 +16,33 @@ body {
   overflow-x: hidden;
 }
 
+/* New layout styles for sticky header and footer */
+html,
+body {
+  height: 100%;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Flexbox properties for sticky layout */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Ensure header and footer don't shrink */
+header, footer {
+  flex-shrink: 0;
+}
+
+/* Main content area to take up all remaining space */
+main {
+  flex-grow: 1;
 }
 
 * {
