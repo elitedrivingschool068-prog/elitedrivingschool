@@ -4,23 +4,7 @@ import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
-// Configure Inter with a CSS variable and robust fallbacks.
-// Using a variable lets us control the final font-family in CSS without specificity issues.
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-sans',
-  fallback: [
-    'system-ui',
-    'Segoe UI',
-    'Roboto',
-    'Helvetica Neue',
-    'Arial',
-    'Noto Sans',
-    'Liberation Sans',
-    'sans-serif'
-  ],
-})
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Elite Driving School',
@@ -37,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${inter.className}`}>
+      <body className={inter.className}>
         <Header />
         <main style={{ flexGrow: 1 }}>
           {children}

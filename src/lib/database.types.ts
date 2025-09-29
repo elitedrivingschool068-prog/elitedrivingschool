@@ -1,6 +1,6 @@
 export type Json =
-  | string        
-  | number        
+  | string
+  | number
   | boolean
   | null
   | { [key: string]: Json | undefined }
